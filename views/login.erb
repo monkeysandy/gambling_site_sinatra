@@ -1,0 +1,21 @@
+<h3>Log in to start betting!</h3>
+
+<% if locals[:error_message] %>
+    <div class="error-message">
+      <p><%= locals[:error_message] %></p>
+    </div>
+    <% # Clear the error message from the session after displaying it %>
+    <% session.delete(:error_message) %>
+<% end %>
+
+<form action="/login" method='post'>
+    Username <input type='text' name='Username'></input>
+    <br>
+    <br>
+    Password <input type='password' name='Password'></input>
+    <br>
+    <br>
+    <input type='submit' name='Login'></input>
+</form>
+
+<p><a href="/signup">Sign up</a> to create account.</p>

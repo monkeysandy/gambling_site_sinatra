@@ -1,0 +1,30 @@
+<h1>User List</h1>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Password</th>
+    <th>Total Win</th>
+    <th>Total Loss</th>
+    <th>Total Profit</th>
+    <th>Action</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.Username %></td>
+      <td><%= user.Password %></td>
+      <td>$<%= user.total_win %></td>
+      <td>$<%= user.total_loss %></td>
+      <td>$<%= user.total_profit %></td>
+      <td>
+        <form action="/users/<%= user.Username %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<form action="home.html">
+    <input type="submit" value="Home">
+</form>

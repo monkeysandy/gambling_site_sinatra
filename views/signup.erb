@@ -1,0 +1,21 @@
+<h3>Welcome to Sign up!</h3>
+
+<% if locals[:error_message] %>
+    <div class="error-message">
+      <p><%= locals[:error_message] %></p>
+    </div>
+    <% # Clear the error message from the session after displaying it %>
+    <% session.delete(:error_message) %>
+<% end %>
+
+<form action="/signup" method='post'>
+    Username <input type='text' name='Username' require></input>
+    <br>
+    <br>
+    Password <input type='password' name='Password' require></input>
+    <br>
+    <br>
+    <input type='submit' name='Signup'></input>
+</form>
+
+<p><a href="/login">Login</a> to start gambling.</p>

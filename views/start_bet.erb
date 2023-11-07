@@ -1,0 +1,45 @@
+<link href="style.css" rel="stylesheet" type="text/css">
+
+<div class="container">
+    <h3>Welcome, <%= session[:Username] %></h3>
+
+    <% if locals[:error_message] %>
+        <div class="error-message">
+            <p><%= locals[:error_message] %></p>
+        </div>
+        <% # Clear the error message from the session after displaying it %>
+        <% session.delete(:error_message) %>
+    <% end %>
+
+    <div class="betting_info">
+        <p>Place your bet on dice number 1 - 6</p>
+        <form action="/start_bet" method="post">
+            <label for="money">Bet $</label>
+            <input type="text" id="money" name="money">
+            <label for="number">on number</label>
+            <input type="text" id="number" name="number">
+            <input type="submit" value="bet">
+        </form>
+    </div>
+
+    <div class="session_info">
+        <h2>Session Information</h2>
+        <p>Session Win: $<%= session[:session_win] %></p>
+        <p>Session Loss: $<%= session[:session_loss] %></p>
+        <p>Session Profit: $<%= session[:session_profit] %></p>
+    </div>
+
+    <div class="account_info">
+        <h2>Account Information</h2>
+        <p>Total Win: $<%= session[:total_win] %></p>
+        <p>Total Loss: $<%= session[:total_loss] %></p>
+        <p>Total Profit: $<%= session[:total_profit] %></p>
+        
+        
+        <form action="/logout" method="post">
+            <input type="submit" value="logout">
+        </form>
+        
+        
+    </div>
+</div>

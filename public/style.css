@@ -8,5 +8,6 @@ body {
     position:relative;
 }
 h1 {
-    color:#a09b89
+    text-align: center;
+    color: #333;
 }
