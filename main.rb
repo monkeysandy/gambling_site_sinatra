@@ -25,7 +25,11 @@ configure :production do
 
   DataMapper.finalize
 #   DataMapper.auto_upgrade!
-  
+
+get '/' do
+    send_file 'public/home.html'
+end
+
 get '/signup' do
     erb :signup
 end
