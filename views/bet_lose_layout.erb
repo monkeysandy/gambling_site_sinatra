@@ -1,4 +1,15 @@
 <link href="style.css" rel="stylesheet" type="text/css">
-<h1>Gambling Site</h1>
-<p> The dice rolled a <%= @roll %>, you lose....</p>
-<%= yield %>
+<body>
+    <h1>Gambling Site</h1>
+    <div class="message-window">
+        <p>You bet <%= @number %></p>
+        <p> But the dice rolled a <%= @roll %>, you lose....</p>
+    </div>
+    <br>
+    <br>
+    <%= yield %>
+
+    <footer>
+        Made with 💚 by Sandy
+    </footer>
+</body>

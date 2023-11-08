@@ -40,7 +40,11 @@ post '/signup' do
     username = params[:Username]
     password = params[:Password]
 
-    if username.length < 1 || password.length < 1
+    existing_user = User_data.first(Username: username)
+
+    if existing_user
+        erb :signup, locals: { error_message: 'Username already exists' }
+    elsif username.length < 1 || password.length < 1
         erb :signup, locals: { error_message: 'Please enter a username and password' }
     else
 
